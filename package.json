@@ -1,0 +1,116 @@
+{
+  "name": "@1ry/golike-errors",
+  "version": "1.0.0",
+  "description": "A simple wrapper to have go-like error handling",
+  "main": "./lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "clean": "rm -rf ./lib/",
+    "cm": "cz",
+    "lint": "eslint ./src/ --fix",
+    "semantic-release": "semantic-release",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dozro/ts-golike-errors.git"
+  },
+  "license": "MPL-2.0",
+  "author": {
+    "name": "Rye",
+    "email": "contact@itsrye.dev",
+    "url": "https://itsrye.dev"
+  },
+  "contributors": [
+    {
+      "name": "Rye",
+      "email": "contact@itsrye.dev",
+      "url": "https://itsrye.dev"
+    }
+  ],
+  "engines": {
+    "node": ">=12.0"
+  },
+  "keywords": [
+    "error-handling",
+    "typescript",
+    "typescript-library"
+  ],
+  "bugs": {
+    "url": "https://github.com/dozro/ts-golike-errors/issues"
+  },
+  "homepage": "https://github.com/dozro/ts-golike-errors#readme",
+  "devDependencies": {
+    "@ryansonshine/commitizen": "^4.2.8",
+    "@ryansonshine/cz-conventional-changelog": "^3.3.4",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.10.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "lint-staged": "^13.3.0",
+    "prettier": "^2.8.8",
+    "semantic-release": "^21.1.2"
+  },
+  "peerDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@ryansonshine/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --cache-location .eslintcache --fix"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "type": "build",
+              "scope": "deps",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "build",
+                "section": "Dependencies and Other Build Updates",
+                "hidden": false
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  }
+}
