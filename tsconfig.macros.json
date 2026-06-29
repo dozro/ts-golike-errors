@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "transform": "./dist/macros/transform.js"
+      }
+    ],
+    "outDir": "./dist"
+  },
+  "include": ["src"]
+}
