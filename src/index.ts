@@ -1,4 +1,4 @@
 export { Result, unwrap, unwrapOr, unwrapOrThrow, safeUnwrap, isSuccess, isError } from './result';
 export { ResultWrapper, resultify } from './result_wrapper'; 
 export { $unwrapOrNull, $unwrapOr } from './macros';
-export { ThrowableResultPacker, packThrowable } from './decorators';
+// export { ThrowableResultPacker, packThrowable } from './decorators';
